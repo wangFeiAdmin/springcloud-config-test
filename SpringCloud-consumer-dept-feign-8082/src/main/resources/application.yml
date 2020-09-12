@@ -1,0 +1,13 @@
+server:
+  port: 80
+eureka:
+  client:
+    register-with-eureka: false  # 不向eureka注册自己
+    service-url:
+        defaultZone: http://eureka8083.com:8083/eureka/,http://eureka8084.com:8084/eureka/,http://eureka8085.com:8085/eureka/
+
+#开启降级
+feign:
+  hystrix:
+    enabled: true
+#eureka 配置

@@ -1,0 +1,21 @@
+server:
+ port: 9091
+
+ ##配置spring
+spring:
+ application:
+  name: springcloud-zuul
+#配置eureka的服务注册地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka8083.com:8083/eureka/,http://eureka8084.com:8084/eureka/,http://eureka8085.com:8085/eureka/
+
+#为需要访问的微服务起别名，隐藏微服务名称
+zuul :
+ routes :
+  mydept.serviceId: springcloud-provider-dept
+  mydept.path: /mydept/** #新的服务名称
+ ignored-services: springcloud-provider-dept  #设置原服务名称不可再被使用
+ #ignored-services: "*"  所有微服务都被隐藏
+ prefix: /wf  #配置访问前缀  配置后 /wf/mydept/...

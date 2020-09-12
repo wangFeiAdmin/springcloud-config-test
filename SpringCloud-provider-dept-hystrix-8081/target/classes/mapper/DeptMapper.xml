@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定操作部门表的资源路径-->
+<mapper namespace="com.wf.springcloud.dao.DeptDao">
+    <!--添加部门-->
+    <insert id="addDept" parameterType="Dept">
+    insert into t_dept values(null,#{deptname},database());
+    </insert>
+
+    <!--查询指定部门-->
+    <select id="queryDept" resultType="Dept" parameterType="Dept">
+        select * from t_dept where deptno=#{deptno}
+    </select>
+
+    <!--查询所有部门-->
+    <select id="queryAll" resultType="Dept" >
+      select * from t_dept
+    </select>
+
+</mapper>

@@ -1,0 +1,16 @@
+server:
+  port: 8085
+
+eureka:
+  instance:
+#配置服务端实例名称
+    hostname: eureka8085.com
+  client:
+#表示是否向eureka注册中心注册，因为这里配置的是服务端，所以无需注册
+    register-with-eureka: false
+# false表示为服务端，注册中心，true则表示是客户端
+    fetch-registry: false
+#配置服务的访问地址
+    service-url:
+#${eureka.instance.hostname}动态获取服务器名称（localhost） ${server.port}获取端口号（8083）
+      defaultZone: http://eureka8083.com:8083/eureka/,http://eureka8084.com:8084/eureka/
